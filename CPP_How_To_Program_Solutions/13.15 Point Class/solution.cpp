@@ -17,17 +17,15 @@ public:
 };
 
 ostream& operator <<(ostream& out,Point& x){
-    if (x.getX() < 0 || x.getY() < 0){
-        cin.setstate(ios::failbit);
+    if (cin.fail()){
+        cout << endl <<  "Fault : Improper input!!!" << endl;
+        cout.setstate(ios::failbit);
     }
     cout << "X location -> " << x.getX() << endl;
     cout << "Y location -> " << x.getY() << endl;
 }
 
 istream& operator >>(istream& in,Point& x){
-    if (cin.fail()){
-        cout << endl <<  "This point class is closed because of improper data!!!" << endl;
-    }
     int a;
     cout << "Enter x location" << endl;
     cin >> a;
